@@ -5,13 +5,20 @@ const store = createStore({
     return {
       username: "alicedev94",
       rol: "admin",
+      count: 1,
     };
   },
   getters: {
-    firstName (state) {
-      return state.username.toLocaleUpperCase()
-    }
-  }
+    firstName(state) {
+      return state.username.toLocaleUpperCase();
+    },
+  },
+  mutations: {
+    increment(state, username) {
+      //mute state
+      state.username = username;
+    },
+  },
 });
 
 export default store;
