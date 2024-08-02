@@ -19,6 +19,20 @@ const store = createStore({
       state.username = username;
     },
   },
+  actions: {
+    async getData({ commit }) {
+      try {
+        const res = await fetch("https://fakestoreapi.com/products/1");
+        const {
+          category
+        } = await res.json();
+        
+        commit('increment', category);
+      } catch (error) {
+        alert(error.message);
+      }
+    },
+  },
 });
 
 export default store;

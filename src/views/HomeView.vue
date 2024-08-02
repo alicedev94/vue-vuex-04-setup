@@ -33,8 +33,8 @@ export default {
     }
   },
   computed: {
-     ...mapState(['username', 'rol']),
-     ...mapGetters(['firstName'])
+    ...mapState(['username', 'rol']),
+    ...mapGetters(['firstName'])
   },
 }
 </script>

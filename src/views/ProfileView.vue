@@ -1,13 +1,14 @@
 <script>
 import store from '@/store/index.js'
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 
 export default {
   computed: {
     ...mapState(['username']),
   },
   methods: {
-    ...mapMutations(['increment'])
+    ...mapMutations(['increment']),
+    ...mapActions(['getData'])
   },
 }
 </script>
@@ -17,9 +18,8 @@ export default {
     <div class="box">
       <img src="/avatars/avatar.jpg" alt="avatar" />
       <label for="username">{{ username }}</label>
-      <input type="text" placeholder="Jane Smith" :value="username"
-        @input="increment($event.target.value)" />
-      <button>Acceder</button>
+      <input type="text" placeholder="Jane Smith" :value="username" @input="increment($event.target.value)" />
+      <button @click="getData()">Acceder</button>
     </div>
   </div>
 </template>
